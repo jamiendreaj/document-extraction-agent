@@ -1,0 +1,10 @@
+node_modules/
+dist/
+dist-test/
+.env
+*.local
+.DS_Store
+
+# Real contracts are confidential by definition. Only the fictional ones ship.
+contracts/*.txt
+!contracts/example-*.txt

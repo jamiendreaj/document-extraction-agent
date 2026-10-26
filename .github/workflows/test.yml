@@ -1,0 +1,28 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # The framework is a git dependency rather than an npm package. The
+      # lockfile records a git+ssh URL, which looks like it needs a key and
+      # does not: the repository is public and npm resolves it over https.
+      # Checked against an empty cache with ssh disabled before relying on it.
+      # Its `prepare` script builds its dist/ during install.
+      - run: npm ci
+
+      # No API key, deliberately. Every test runs against an injected client,
+      # so the suite cannot fail for a reason unrelated to the code — and a
+      # guardrail nobody runs is a comment.
+      - run: npm test
+      - run: npm run build

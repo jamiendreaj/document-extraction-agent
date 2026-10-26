@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2022"],
+
+    // Declared rather than discovered. TypeScript will normally find
+    // @types/node on its own, and in this repository it silently did not —
+    // same config, same installed version as the sibling repo where it works,
+    // and `console` came back undefined. Naming it is deterministic, says
+    // which ambient types the code is entitled to, and cannot drift with
+    // whatever else ends up in node_modules.
+    "types": ["node"],
+
+    "outDir": "dist",
+    "rootDir": "src",
+
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "declaration": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.test.ts", "dist", "node_modules"]
+}

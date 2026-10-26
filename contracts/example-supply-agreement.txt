@@ -1,0 +1,72 @@
+MASTER SERVICES AGREEMENT
+
+This Agreement is made between Verano Foods S.p.A., a company incorporated in
+Italy with registered office at Via dei Mulini 14, 10024 Moncalieri (TO)
+("the Customer"), and Northbrook Analytics Ltd, a company incorporated in
+England and Wales with registered office at 3 Pellow Yard, Bristol BS1 4QA
+("the Supplier").
+
+The parties signed this Agreement on 14 January 2027.
+
+1. DEFINITIONS
+
+1.1 "Effective Date" means 1 February 2027.
+
+1.2 "Fees" means the charges set out in Schedule 1.
+
+1.3 "Services" means the data analysis services described in Schedule 1.
+
+2. TERM
+
+2.1 This Agreement takes effect on the Effective Date and shall continue for an
+initial term of twenty-four (24) months (the "Initial Term").
+
+2.2 At the end of the Initial Term this Agreement shall automatically renew for
+successive periods of twelve (12) months each, unless either party gives notice
+of non-renewal in accordance with clause 11.
+
+3. FEES AND PAYMENT
+
+3.1 The Customer shall pay the Fees within forty-five (45) days of the date of
+each valid invoice.
+
+3.2 Interest on late payment shall accrue at four per cent (4%) per annum above
+the base rate.
+
+9. LIMITATION OF LIABILITY
+
+9.1 Nothing in this clause limits either party's liability for death or personal
+injury caused by negligence, or for fraud.
+
+9.2 Subject to clause 9.1, each party's total aggregate liability arising out of
+or in connection with this Agreement shall not exceed the aggregate Fees paid by
+the Customer in the twelve (12) months preceding the event giving rise to the
+claim.
+
+11. NOTICES AND NON-RENEWAL
+
+11.1 A party wishing to prevent renewal under clause 2.2 shall give the other
+party not less than thirty (30) days written notice before the end of the then
+current term.
+
+11.2 Any notice under this Agreement shall be in writing and delivered by hand
+or sent by recorded post to the address given above.
+
+14. GOVERNING LAW
+
+14.1 This Agreement and any dispute arising out of it shall be governed by and
+construed in accordance with the laws of England and Wales.
+
+SCHEDULE 1 - THE SERVICES AND FEES
+
+The Supplier shall provide monthly reporting and a quarterly review. The Fees
+are EUR 4.500,00 per month, invoiced monthly in arrears.
+
+SCHEDULE 2 - OPERATIONAL PROVISIONS
+
+Non-renewal. Notwithstanding anything else in this Agreement, a party wishing to
+prevent renewal shall give not less than sixty (60) days written notice before
+the end of the then current term.
+
+Escalation. Service issues shall be escalated to the account manager within two
+(2) working days.

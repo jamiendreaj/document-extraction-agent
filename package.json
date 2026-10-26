@@ -1,0 +1,23 @@
+{
+  "name": "document-extraction-agent",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Pulls structured fields out of long contracts, where every field carries the verbatim span it came from — and a field whose evidence is not in the document is deleted, not flagged.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "tsc -p tsconfig.test.json && ls dist-test/*.test.js >/dev/null && node --test dist-test/*.test.js",
+    "extract": "npm run build --silent && node dist/cli.js",
+    "sample": "npm run build --silent && node -e \"const {sampleRun}=await import(\\\"./dist/sample.js\\\");const {report}=await import(\\\"./dist/report.js\\\");console.log(report(await sampleRun()))\" --input-type=module"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.68.0",
+    "grounded-agents": "github:jamiendreaj/grounded-agents"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2"
+  },
+  "license": "MIT",
+  "private": true
+}
