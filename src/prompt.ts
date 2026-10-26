@@ -50,6 +50,11 @@ FOUR RULES
    what a contract like this would usually say; what contracts usually say is
    not evidence about this one.
 
+   Record a date as YYYY-MM-DD. That is a format, not an interpretation — the
+   contract's own wording stays in the span. If the document writes a date
+   numerically and the day and month order is genuinely undecidable, it cannot
+   be recorded as found at all.
+
 4. DO NOT CONVERT, COMPUTE OR INTERPRET.
    Record the figure and the unit the document uses. Two months is not sixty
    days. A cap expressed as "the aggregate Fees paid in the preceding twelve

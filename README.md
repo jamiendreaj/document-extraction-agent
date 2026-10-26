@@ -6,7 +6,7 @@ flagged.**
 
 ```bash
 npm install
-npm test                                              # 57 tests, offline, no API key
+npm test                                              # 58 tests, offline, no API key
 npm run sample                                        # a full extraction, scripted
 npm run extract -- contracts/example-supply-agreement.txt   # needs ANTHROPIC_API_KEY
 ```
@@ -204,9 +204,28 @@ Two more things that are silent when wrong:
 
 ---
 
+## It has been run for real
+
+Three live runs against the example contract. The model found all nine fields,
+recorded the notice period as **ambiguous with both candidates** — noticing on
+its own that Schedule 2 says *"notwithstanding anything else in this
+Agreement"* — kept the liability cap as the formula, and marked
+termination-for-convenience absent with a note saying where it had looked.
+
+Roughly **28,000 tokens, 22 tool calls, 25 seconds** per contract. Most of that
+is the system prompt riding along on every turn; a longer contract costs more
+in tool results, not in prompt.
+
+The first run also found a real bug, which is the argument for doing it:
+`effective_date` came back as `1 February 2027`, where every scripted test had
+produced `2027-02-01`. **Both passed the guard.** One field, two formats,
+depending on which phrasing the model happened to copy — and nothing
+downstream could parse that reliably. The guard now takes ISO only, the prompt
+says so, and the document's own wording stays where it belongs, in the span.
+
 ## Tests
 
-57, all offline. `extract()` takes an injectable client, so the whole loop runs
+58, all offline. `extract()` takes an injectable client, so the whole loop runs
 against scripted responses with no API key.
 
 Every guard was checked by removing it and confirming the right tests go red.

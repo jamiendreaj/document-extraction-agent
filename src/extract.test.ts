@@ -300,7 +300,10 @@ test('the signature date is not the effective date, and the guard can tell them 
     value: '2027-01-14', span: SPAN.effective, section: SECTION.definitions,
   })));
   assert.equal(r.sendable, false);
-  assert.match(r.guardrails.issues.find((i) => i.rule === 'value_not_in_span')!.detail, /not the date its quotation states/);
+  assert.match(
+    r.guardrails.issues.find((i) => i.rule === 'value_not_in_span')!.detail,
+    /its quotation states 2027-02-01/,
+  );
 });
 
 /* ── what is reported but not blocked ─────────────────────────────────── */
@@ -481,4 +484,20 @@ test('the grave list names rules that exist', () => {
   // ordinary mistake rather than a false output.
   const wired = new Set(ALL.map((g) => g.ruleName));
   for (const name of GRAVE) assert.ok(wired.has(name), `${name} is marked grave but is not a rule`);
+});
+
+test('a date in the document own wording is not accepted as the value', async () => {
+  // The first live run returned "1 February 2027" where every scripted run
+  // had returned "2027-02-01", and both passed. One field, two formats,
+  // depending on which phrasing the model copied.
+  const r = await go(calls(record('effective_date', {
+    value: '1 February 2027', span: SPAN.effective, section: SECTION.definitions,
+  })));
+
+  assert.equal(r.sendable, false);
+  assert.match(
+    r.guardrails.issues.find((i) => i.rule === 'value_not_in_span')!.detail,
+    /dates are recorded as YYYY-MM-DD/,
+  );
+  assert.equal(r.extraction.effective_date, undefined, 'and it is removed, not reformatted');
 });

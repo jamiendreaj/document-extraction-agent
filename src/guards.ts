@@ -104,8 +104,22 @@ export const valueNotInSpan = (): Guard<ExtractionDocument, unknown> =>
 
         if (spec.kind === 'date') {
           const seen = parseDates(f.span);
-          if (!seen.some((d) => d.iso === f.value || d.raw === f.value)) {
-            bad.push(`${name} records ${String(f.value)}, which is not the date its quotation states`);
+          // ISO only.
+          //
+          // This used to accept the document's own wording as well, and the
+          // first live run duly returned "1 February 2027" where the scripted
+          // runs had returned "2027-02-01". Both passed. A field whose format
+          // depends on which phrasing the model happened to copy is a field
+          // nobody downstream can parse — and a renewal calendar built on it
+          // breaks on the contract that spelled the month out.
+          //
+          // The original words are not lost: they are in the span, which is
+          // where this agent keeps everything it did not normalise.
+          if (!seen.some((d) => d.iso === f.value)) {
+            const says = seen.map((d) => d.iso ?? d.raw).join(', ');
+            bad.push(
+              `${name} records "${String(f.value)}", but its quotation states ${says || 'no date'} — dates are recorded as YYYY-MM-DD`,
+            );
           }
         }
 
